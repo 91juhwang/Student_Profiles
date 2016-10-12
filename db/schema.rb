@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012181907) do
+ActiveRecord::Schema.define(version: 20161012190346) do
+
+  create_table "educations", force: :cascade do |t|
+    t.string   "school"
+    t.datetime "start"
+    t.datetime "graduate"
+    t.string   "major"
+    t.integer  "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.string   "title"
+    t.string   "company"
+    t.text     "description"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +42,22 @@ ActiveRecord::Schema.define(version: 20161012181907) do
     t.integer  "student_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "skills"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
