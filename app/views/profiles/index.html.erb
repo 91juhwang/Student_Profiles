@@ -1,20 +1,10 @@
 <h3>All Profiles</h3>
-<% if @profiles != nil %>
-	<% @profiles.each do |p| %>
+
+<% @profiles.each do |p| %>
 	<li>Student_id: <%= p.student_id %></li>
-	<li>Profile ID: <%=p.id %></li>
 	<li><%= p.name %>
 	<%= p.description %>
 	<%= p.location %></li>
 	<hr>
-	<% end %>
 <% end %>
-
-<h3>Current Student's profile</h3>
-<p>student_id: <%= current_student.id %></p>
-<p>profile_id: <%= @profile.id %></p>
-<%= @profile.name %>
-<%= @profile.description %>
-<%= @profile.location %>
-<%= @profile.course %>
 

@@ -4,4 +4,6 @@ class Profile < ActiveRecord::Base
 	has_many :experiences, dependent: :destroy
 	has_many :projects, dependent: :destroy
 	has_many :skills, dependent: :destroy
+
+	validates_uniqueness_of :student
 end

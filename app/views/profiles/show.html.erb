@@ -1,8 +1,7 @@
-<%= form_for @profile  do |f| %>
-	<%= f.text_field :name, placeholder:'Name' %>
-	<%= f.text_area :description, placeholder:'Describe yourself in 1 or 2 sentences' %>
-	<%= f.text_field :location, placeholder:'Where do you live?' %>
-	<a href="https://nycda.com/courses">See what <%=current_student.email%> has learned from NYCDA!</a>
-	<%= f.hidden_field :student_id, :value => current_student.id %>
-	<%= f.submit 'Submit', id:'profile_submit' %>
-<% end %>
+<h3>Current Student's profile</h3>
+<p>student_id: <%= current_student.id %></p>
+<p>profile_id: <%= @profile.id %></p>
+<%= @profile.name %>
+<%= @profile.description %>
+<%= @profile.location %>
+<%= @profile.course %>
