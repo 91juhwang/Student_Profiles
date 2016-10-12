@@ -1,0 +1,10 @@
+<h3>All Profiles</h3>
+
+<% @profiles.each do |p| %>
+	<li>Student_id: <%= p.student_id %></li>
+	<li><%= p.name %>
+	<%= p.description %>
+	<%= p.location %></li>
+	<hr>
+<% end %>
+
