@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :students, controllers: {
     sessions: 'students/sessions'
   }
-  resources :profiles, shallow: true do 
+  resources :profiles do
     resources :skills
     resources :educations
     resources :experiences
