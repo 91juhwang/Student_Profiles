@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+
   devise_for :students, controllers: {
     sessions: 'students/sessions'
   }

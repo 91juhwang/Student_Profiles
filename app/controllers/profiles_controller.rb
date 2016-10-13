@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
 		if @new_profile.save
 			redirect_to show
 		else
-			flash[:danger] = "You already have a profile, please update original profile"
+			flash[:alert] = "You already have a profile, please update original profile"
 			redirect_to "/profiles/show"
 		end
 	end
