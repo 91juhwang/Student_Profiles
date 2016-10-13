@@ -9,19 +9,23 @@ class ProfilesController < ApplicationController
 
 	def show
 		@profile = Student.find(current_student.id).profile
+		@skill = Skill.new
 	end
 
 	def create
 		@profile = Student.find(current_student.id).profile
 		@new_profile = Profile.new(profile_params)
 		if @new_profile.save
-			redirect_to "/profiles"
+			redirect_to show
 		else
 			flash[:danger] = "You already have a profile, please update original profile"
-			render "show"
+			redirect_to "/profiles/show"
 		end
 	end
 
+	def update
+
+	end
 
 	private
 	def profile_params

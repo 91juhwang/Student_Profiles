@@ -5,3 +5,8 @@
 <%= @profile.description %>
 <%= @profile.location %>
 <%= @profile.course %>
+
+<%= form_for([@profile, @skill]) do |f| %>
+	<p>Skill: <%= f.text_field :name %> </p>
+	<p><%= f.submit %></p>
+<% end %>
