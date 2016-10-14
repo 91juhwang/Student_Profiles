@@ -1,5 +1,6 @@
 <ul>
-	<% @profile.skills.each do |s| %>
+<!-- !element.id.nil? is same as element.id != nil -->
+	<% @profile.skills.select{|element| !element.id.nil? }.each do |s| %>
 		<li><%= s.name %></li>
 	<% end %>
 </ul>
