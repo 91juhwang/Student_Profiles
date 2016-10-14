@@ -1,12 +1,12 @@
 <ul>
-<!-- !element.id.nil? is same as element.id != nil -->
+	<!-- !element.id.nil? is same as element.id != nil -->
 	<% @profile.skills.select{|element| !element.id.nil? }.each do |s| %>
-		<li><%= s.name %> 
-		<% if @profile.id == s.profile_id %>
+		<li>
+			<%= s.name %> 
 			<%= link_to "X", [s.profile, s],
-					method: :delete,
-					data: { confirm: "Are you sure?" } %>
-		<% end %>
+				method: :delete,
+				data: { confirm: "Are you sure?" } %>
+		</li>
 	<% end %>
 </ul>
 

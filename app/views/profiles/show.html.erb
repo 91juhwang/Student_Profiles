@@ -1,5 +1,6 @@
 <h3>Current Student's profile</h3>
-<p>student_id: <%= current_student.id %></p>
+
+<p>student_id: <%= @profile.student.id %></p>
 <p>profile_id: <%= @profile.id %></p>
 <%= @profile.name %>
 <%= @profile.description %>
@@ -7,8 +8,19 @@
 <%= @profile.course %>
 
 <!-- Skills Section -->
-<%= render "skills/form" %>
-<%= render "skills/skills" %>
+<% if student_signed_in? && @profile.student.id == current_student.id %>
+	<%= render "skills/form" %>
+	<%= render "skills/skills" %>
+<% else %>
+	<h3>Skills: </h3>
+	<ul>
+		<% @profile.skills.each do |s| %>
+			<li>
+				<%= s.name %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
 
 <!-- Experience Section -->
 
