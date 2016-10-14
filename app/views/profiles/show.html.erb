@@ -6,8 +6,6 @@
 <%= @profile.location %>
 <%= @profile.course %>
 
-<%= form_for([@profile, @skill], method: :post, action: :create) do |f| %>
-	<p>Skill: <%= f.text_field :name %> </p>
-	<%= f.hidden_field :profile_id, :value => @profile.id %>
-	<p><%= f.submit %></p>
-<% end %>
+<%= render "skills/form" %>
+
+<%= render "skills/skills" %>

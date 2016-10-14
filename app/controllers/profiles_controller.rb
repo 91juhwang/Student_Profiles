@@ -9,7 +9,6 @@ class ProfilesController < ApplicationController
 
 	def show
 		@profile = Profile.find(params[:id])
-		@skill = Skill.new
 	end
 
 	def create

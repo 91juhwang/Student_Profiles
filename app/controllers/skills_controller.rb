@@ -1,11 +1,13 @@
 class SkillsController < ApplicationController
 
 	def create
-		@skill = Skill.new(skill_params)
+		@profile = Profile.find(params[:profile_id])
+		@skill = @profile.skills.create(skill_params)
+		redirect_to profile_path(@profile.id)
 	end
 
 	private
 	def skill_params
-		params.require(:skill).permit(:name, :profile_id)
+		params.require(:skill).permit(:profile_id, :name)
 	end
 end
