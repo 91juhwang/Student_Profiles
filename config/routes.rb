@@ -2,10 +2,17 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+
   devise_for :students, controllers: {
     sessions: 'students/sessions'
   }
-  resources :profiles
+  resources :profiles do
+    resources :skills
+    resources :educations
+    resources :experiences
+  end
+  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
