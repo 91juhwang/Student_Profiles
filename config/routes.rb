@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   }
   resources :profiles do
     resources :skills
-    resources :educations
     resources :experiences
+    resources :educations
   end
   
 
