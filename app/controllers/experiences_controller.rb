@@ -15,10 +15,7 @@ class ExperiencesController < ApplicationController
 
 	private
 	def experience_params
-		start = params[:start]
-		end_time = params[:end]
-		start = Date.civil(start["date(1i)"].to_i, start["date(2i)"].to_i, start["date(3i"].to_i)
-		params.require(:experience).permit(:title, :company, :description, start, :end, :profile_id)
+		params.require(:experience).permit(:title, :company, :description, :start, :end, :profile_id)
 	end
 
 end

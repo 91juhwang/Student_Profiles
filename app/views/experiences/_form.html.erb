@@ -14,11 +14,19 @@
 	</p>
 	<p>
 		<%= f.label :start %>
-		<%= f.date_select :start, :include_blank => true, :order => [:day, :month, :year]  %> 
+		<%= f.date_select :start, 
+			:order => [:day, :month, :year], 
+			:prompt => {day: 'Choose day', month: 'Choose month', year: 'Choose year'},
+			:start_year => 2000,
+			:end_year => Date.today().year %> 
 	</p>
 	<p>
 		<%= f.label :end %>
-		<%= f.date_select :end, :include_blank => true, :order => [:day, :month, :year] %> 
+		<%= f.date_select :end, 
+			:order => [:day, :month, :year], 
+			:prompt => {day: 'Choose day', month: 'Choose month', year: 'Choose year'},
+			:start_year => 2000,
+			:end_year => Date.today().year %> 
 	</p>
 	<%= f.hidden_field :profile_id, :value => @profile.id %>
 	<p><%= f.submit %></p>
