@@ -14,6 +14,8 @@
 	<nav>
 		<%= link_to "HOME", root_path %>
 		<%= link_to "STUDENTS", profiles_path %>
+		<!-- just putting this here for now -->
+		<%= link_to "JOBS", jobs_path %>
 		<% if student_signed_in? && !current_student.profile.nil? %>	
 			<%= link_to "MY PROFILE", profile_path(current_student.profile.id) %>
 			<%= link_to "SIGN OUT", destroy_student_session_path, :method => :delete %>
