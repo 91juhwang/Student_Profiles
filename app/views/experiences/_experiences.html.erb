@@ -1,0 +1,15 @@
+<ul>
+	<!-- !element.id.nil? is same as element.id != nil -->
+	<!-- required select method for first user who does not have any posts yet -->
+	<% @profile.experiences.select{|element| !element.id.nil? }.each do |e| %>
+		<li>Title: <%= e.title %></li>
+		<li>Company: <%= e.company %></li>
+		<li>Description: <%= e.description %></li>
+		<li>Start Date: <%= e.start %></li>
+		<li>End Date: <%= e.end %></li> 
+			<%= link_to "Delete This Experience", [e.profile, e],
+				method: :delete,
+				data: { confirm: "Are you sure?" } %>
+	<% end %>
+</ul>
+

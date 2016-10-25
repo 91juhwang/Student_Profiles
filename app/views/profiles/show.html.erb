@@ -23,6 +23,21 @@
 <% end %>
 
 <!-- Experience Section -->
+<% if student_signed_in? && @profile.student.id == current_student.id %>
+	<%= render "experiences/form" %>
+	<%= render "experiences/experiences" %>
+<% else %>
+	<h3>Experiences: </h3>
+	<ul>
+		<% @profile.experiences.each do |e| %>
+			<li><%= e.title %></li>
+			<li><%= e.company %></li>
+			<li><%= e.description %></li>
+			<li><%= e.strftime("%m-%d-%Y", start) %></li>
+			<li><%= e.end.strftime("%Y") %></li>
+		<% end %>
+	</ul>
+<% end %>
 
 
 <!-- Educatino Section -->

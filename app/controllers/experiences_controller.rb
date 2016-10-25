@@ -1,5 +1,6 @@
 class ExperiencesController < ApplicationController
-		def create
+	
+	def create
 		@profile = Profile.find(params[:profile_id])
 		@experience = @profile.experiences.create(experience_params)
 		redirect_to profile_path(@profile.id)
@@ -14,7 +15,10 @@ class ExperiencesController < ApplicationController
 
 	private
 	def experience_params
-	params.require(:experience).permit(:)
+		start = params[:start]
+		end_time = params[:end]
+		start = Date.civil(start["date(1i)"].to_i, start["date(2i)"].to_i, start["date(3i"].to_i)
+		params.require(:experience).permit(:title, :company, :description, start, :end, :profile_id)
 	end
 
 end
