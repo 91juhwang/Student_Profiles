@@ -9,7 +9,7 @@
 		<li>Description: <%= e.description %></li>
 		<li>Start Date: <%= e.start %></li>
 		<li>End Date: <%= e.end %></li> 
-			<%= link_to "Delete This Experience", [e.profile, e],
+			<%= link_to "delete this experience", [e.profile, e],
 				method: :delete,
 				data: { confirm: "Are you sure?" } %>
 	</p>

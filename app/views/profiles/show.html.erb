@@ -24,22 +24,22 @@ Summary: <%= @profile.description %> <br>
 		<% end %>
 	</ul>
 	<h3>Experiences: </h3>
-	<ul>
-		<% @profile.experiences.each do |e| %>
-			<li><%= e.title %></li>
-			<li><%= e.company %></li>
-			<li><%= e.description %></li>
-			<li><%= e.start %></li>
-			<li><%= e.end %></li>
-		<% end %>
-	</ul>
+	<% @profile.experiences.each do |e| %>
+		<div class="experiences">
+			<p>Position: <%= e.title %></p>
+			<p>Company: <%= e.company %></p>
+			<p>Description:<%= e.description %></p>
+			<p>Started: <%= e.start %></p>
+			<p>End: <%= e.end %></p>
+		</div>
+	<% end %>
 	<h3>Educations: </h3>
-	<ul>
-		<% @profile.educations.each do |e| %>
-			<li><%= e.school %></li>
-			<li><%= e.major %></li>
-			<li><%= e.start %></li>
-			<li><%= e.graduate %></li>
-		<% end %>
-	</ul>
+	<% @profile.educations.each do |e| %>
+		<div class="educations">
+			<p>School: <%= e.school %></p>
+			<p>Major: <%= e.major %></p>
+			<p>Started: <%= e.start %></p>
+			<p>Graduated: <%= e.graduate %></p>
+		</div>
+	<% end %>
 <% end %>
