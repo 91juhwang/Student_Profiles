@@ -1,0 +1,41 @@
+<h3>Add Education: </h3>
+<%= form_for([@profile, @profile.educations.new]) do |f| %>
+	<% if @profile.educations.new.errors.any? %>
+		<h3>
+			<%= pluralize(@profile.educations.new.errors.count, "error") %>
+			Prohibited educations to be created
+		</h3>
+		<ul>
+			<% @profile.educations.new.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<p>
+		<%= f.label :school %>
+		<%= f.text_field :school %> 
+	</p>
+	<p>
+		<%= f.label :major %>
+		<%= f.text_field :major %> 
+	</p>
+	<p>
+		<%= f.label :from %>
+		<%= f.date_select :start, 
+			:order => [:day, :month, :year], 
+			:prompt => {day: 'Choose day', month: 'Choose month', year: 'Choose year'},
+			:start_year => 2000,
+			:end_year => Date.today().year %> 
+	</p>
+	<p>
+		<%= f.label :grdauate %>
+		<%= f.date_select :graduate, 
+			:order => [:day, :month, :year], 
+			:prompt => {day: 'Choose day', month: 'Choose month', year: 'Choose year'},
+			:start_year => 2000,
+			:end_year => Date.today().year %> 
+	</p>
+	<%= f.hidden_field :profile_id, :value => @profile.id %>
+	<p><%= f.submit %></p>
+<% end %>
+

@@ -1,3 +1,4 @@
+<h3>My Skills:</h3>
 <ul>
 	<!-- !element.id.nil? is same as element.id != nil -->
 	<% @profile.skills.select{|element| !element.id.nil? }.each do |s| %>
@@ -8,4 +9,5 @@
 		</li>
 	<% end %>
 </ul>
+<hr>
 

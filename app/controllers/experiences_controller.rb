@@ -6,6 +6,10 @@ class ExperiencesController < ApplicationController
 		redirect_to profile_path(@profile.id)
 	end
 
+	def update
+		
+	end
+
 	def destroy
 		@profile = Profile.find(params[:profile_id])
 		@experience = @profile.experiences.find(params[:id])

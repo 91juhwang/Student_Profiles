@@ -7,26 +7,22 @@ Summary: <%= @profile.description %> <br>
 <%= @profile.location %>
 <%= @profile.course %>
 
-<!-- Skills Section -->
+<hr>
+
 <% if student_signed_in? && @profile.student.id == current_student.id %>
 	<%= render "skills/form" %>
 	<%= render "skills/skills" %>
+	<%= render "experiences/form" %>
+	<%= render "experiences/experiences" %>
+	<%= render "educations/form" %>
+	<%= render "educations/educations" %>
 <% else %>
 	<h3>Skills: </h3>
 	<ul>
 		<% @profile.skills.each do |s| %>
-			<li>
-				<%= s.name %>
-			</li>
+			<li><%= s.name %></li>
 		<% end %>
 	</ul>
-<% end %>
-
-<!-- Experience Section -->
-<% if student_signed_in? && @profile.student.id == current_student.id %>
-	<%= render "experiences/form" %>
-	<%= render "experiences/experiences" %>
-<% else %>
 	<h3>Experiences: </h3>
 	<ul>
 		<% @profile.experiences.each do |e| %>
@@ -37,7 +33,13 @@ Summary: <%= @profile.description %> <br>
 			<li><%= e.end %></li>
 		<% end %>
 	</ul>
+	<h3>Educations: </h3>
+	<ul>
+		<% @profile.educations.each do |e| %>
+			<li><%= e.school %></li>
+			<li><%= e.major %></li>
+			<li><%= e.start %></li>
+			<li><%= e.graduate %></li>
+		<% end %>
+	</ul>
 <% end %>
-
-
-<!-- Educatino Section -->
