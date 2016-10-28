@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025201809) do
+ActiveRecord::Schema.define(version: 20161028175712) do
 
   create_table "educations", force: :cascade do |t|
     t.string   "school"
@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 20161025201809) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "student_type"
+    t.string   "job_type"
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true

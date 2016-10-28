@@ -18,12 +18,14 @@
 			<%= link_to "MY PROFILE", profile_path(current_student.profile.id) %>
 			<!-- just putting this here for now -->
 			<%= link_to "JOBS", jobs_path %>
+			<%= link_to "SETTINGS", edit_student_registration_path %>
 			<%= link_to "SIGN OUT", destroy_student_session_path, :method => :delete %>
 		<% elsif student_signed_in? && current_student.profile.nil? %>	
 			<%= link_to "CREATE PROFILE", new_profile_path %>
 			<%= link_to "SIGN OUT", destroy_student_session_path, :method => :delete %>
 		<% else %>	
 			<%= link_to "SIGN IN", student_session_path %>
+			<%= link_to "SIGN UP", new_student_registration_path %>
 		<% end %>
 	</nav>
 

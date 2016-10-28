@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-
   devise_for :students, controllers: {
-    sessions: 'students/sessions'
+    sessions: 'students/sessions',
+    registrations: 'registrations'
   }
   resources :profiles do
     resources :skills

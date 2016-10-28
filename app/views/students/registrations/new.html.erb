@@ -9,6 +9,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :student_type %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.select :student_type, ["NYCDA", "COMPANY"] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :job_type %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.select :job_type, ["Developer", "Designer"] %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
