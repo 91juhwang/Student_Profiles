@@ -9,6 +9,7 @@
 		<%= link_to "delete this education", [edu.profile, edu],
 			method: :delete,
 			data: { confirm: "Are you sure?" } %>
+		<%= link_to "edit", edit_profile_education_path(@profile.id, edu.id) %>
 	</p>
 <% end %>
 <hr>

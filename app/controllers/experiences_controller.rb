@@ -6,8 +6,20 @@ class ExperiencesController < ApplicationController
 		redirect_to profile_path(@profile.id)
 	end
 
+	def edit
+		@profile = Profile.find(params[:profile_id])
+		@experience = @profile.experiences.find(params[:id])
+	end
+
 	def update
-		
+		@profile = Profile.find(params[:profile_id])
+		@experience = @profile.experiences.find(params[:id])
+		if @experience.update(experience_params)
+			redirect_to @profile
+		else 
+			flash[:alert] = "Could not save"
+			redirect_to @profile
+		end
 	end
 
 	def destroy
