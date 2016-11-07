@@ -7,16 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-	<%= content_tag :div, flash[:notice], class: "alert alert-success" if flash[:notice] %>
-  <%= content_tag :div, flash[:alert], class: "alert alert-danger" if flash[:alert] %>
 	
-	<nav>
+<!-- 	<nav>
 		<%= link_to "HOME", root_path %>
 		<%= link_to "STUDENTS", profiles_path %>
 		<% if student_signed_in? && !current_student.profile.nil? %>	
 			<%= link_to "MY PROFILE", profile_path(current_student.profile.id) %>
-			<!-- just putting this here for now -->
 			<%= link_to "JOBS", jobs_path %>
 			<%= link_to "SETTINGS", edit_student_registration_path %>
 			<%= link_to "SIGN OUT", destroy_student_session_path, :method => :delete %>
@@ -27,8 +23,57 @@
 			<%= link_to "SIGN IN", student_session_path %>
 			<%= link_to "SIGN UP", new_student_registration_path %>
 		<% end %>
+	</nav> -->
+
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <%= link_to "Profiles", root_path, :class => "navbar-brand" %>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><%= link_to "STUDENTS", profiles_path %></li>
+	        <% if student_signed_in? && !current_student.profile.nil? %>
+	        <li><%= link_to "JOBS", jobs_path %></li>
+	      </ul>
+
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Current Student <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	          	<li><%= link_to "MY PROFILE", profile_path(current_student.profile.id) %></li>
+	            <li><%= link_to "SETTINGS", edit_student_registration_path %></li>
+	            <li role="separator" class="divider"></li>
+	            <li><%= link_to "SIGN OUT", destroy_student_session_path, :method => :delete %></li>
+	            <% elsif student_signed_in? && current_student.profile.nil? %>
+	            <li><%= link_to "CREATE PROFILE", new_profile_path %></li>
+	            <li><%= link_to "SETTINGS", edit_student_registration_path %></li>
+	            <li role="separator" class="divider"></li>
+	            <li><%= link_to "SIGN OUT", destroy_student_session_path, :method => :delete %></li>
+	          </ul>
+	        </li>
+	      </ul>
+	      <% else %>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><%= link_to "SIGN IN", student_session_path %></li>
+			<li><%= link_to "SIGN UP", new_student_registration_path %></li>
+	      </ul>
+	      <% end %>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
 	</nav>
 
+<div class="container">
 	<%= yield %>
 </div>
 
