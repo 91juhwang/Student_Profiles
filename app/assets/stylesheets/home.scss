@@ -8,34 +8,50 @@ $yellow: #f4e092;
 .homeHeader {
 	text-align: center;
 	height: 450px;
-	//background: url("header.jpg") center center;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	background: url("header.jpg");
 	background-size: cover;
-	margin: 0;
-	margin-bottom: 8%;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
 	h1 { 
 		font-size: 5em;
 		padding-top: 12%;
 		margin: 0;
-		color: $yellow;
-		text-shadow: 2px 2px #777;
+		text-shadow: 0 0 5px $yellow;
+		color: #fff;
 	}
 }
 
 .devSection {
 	text-align: center;
 	height: 500px;
+	background-color: $yellow;
+	border-top-right-radius: 25%;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 	h2 {
-		text-shadow: 1px 1px #777;
 		a {
-			color: $yellow;
+			color: #333;
 		}
 	}
 }
 
 .designSection {
 	@extend .devSection;
+	background-color: #888;
+
+	h2 {
+		a {
+			color: #fff;
+		}
+	}
+}
+
+.whySection {
+	text-align: center;
+	height: 500px;
+
 }
 
 
