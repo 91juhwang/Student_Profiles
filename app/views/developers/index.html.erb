@@ -2,24 +2,21 @@
 	<h2>
 		Developers
 	</h2>
-	<div class="paginate">
+	<!-- Designers view page -->
+	<div class="student_lists">
 		<% @developers.each do |dev| %>
-			<% if dev.profile != nil && dev.profile.experiences.last != nil && dev.profile.educations.last != nil %>
+			<% if !dev.profile.nil? && !dev.profile.experiences.last.nil? && !dev.profile.educations.last.nil? %>
 				<h4><%= link_to dev.profile.name, profile_path(dev.profile.id) %></h4>
-				<h5>Expeirence:</h5>
+				<h4>I am Currently..: <%= dev.profile.status %> </h4>
 				<p>
-					Previously a 
-					<%= dev.profile.experiences.last.title %> at 
-					<%= dev.profile.experiences.last.company %>
+					Previously a <%= dev.profile.experiences.last.title %>
+					at <%= dev.profile.experiences.last.company %>
 				</p>
-				<h5>Education: </h5>
 				<p>
-					Degree in 
-					<%= dev.profile.educations.last.major %>
-					at
-					<%= dev.profile.educations.last.school %>
+					Degree in <%= dev.profile.educations.last.major %>
+					at <%= dev.profile.educations.last.school %>
 				</p>
-				<h5> Skills: </h5>
+				<strong>Skills: </strong>
 				<% dev.profile.skills.each do |s| %>
 					<%= s.name %>, 
 				<% end %>
@@ -29,4 +26,3 @@
 	<div class="paginate_nav">
 		<%= will_paginate @developers %>
 	</div>	
-</div>
