@@ -59,10 +59,9 @@
 <div class="container">
 	<%= content_tag :div, flash[:notice], class: "alert alert-success" if flash[:notice] %>
 	<%= content_tag :div, flash[:alert], class: "alert alert-danger" if flash[:alert] %>
+</div>
 
 	<%= yield %>
-
-</div>
 
 
 </body>

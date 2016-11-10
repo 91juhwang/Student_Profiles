@@ -2,56 +2,55 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+$font: 'Work Sans', sans-serif;
 $yellow: #f4e092;
+
+body {
+	font-family: $font;
+}
 
 
 .homeHeader {
 	text-align: center;
-	height: 450px;
-	margin-top: 5%;
-	margin-bottom: 5%;
-	background: url("header.jpg");
+	background: url("ny3.jpg") center center;
 	background-size: cover;
-	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	height: 100%;
+	width: 100%;
+	padding: 18%;
+	margin: 0;
 
-	h1 { 
-		font-size: 5em;
-		padding: 12%;
+	h1 {
 		margin: 0;
-		text-shadow: 0 0 5px $yellow;
 		color: #fff;
+		font-weight: 600;
 	}
 }
 
-.devSection {
-	text-align: center;
-	height: 500px;
-	background-color: $yellow;
-	border-top-right-radius: 25%;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+.forDevAndDes {
+	background-color: #333;
+	padding-top: 5%;
+	padding-bottom: 5%;
 
-	h2 {
-		a {
-			color: #333;
+	.devSection {
+		text-align: center;
+
+		img {
+			width: 100%;
+		}
+
+		h2 {
+			margin: 0;
+			a {
+				color: #fff;
+				font-weight: 600;
+			}
 		}
 	}
-}
 
-.designSection {
-	@extend .devSection;
-	background-color: #888;
-
-	h2 {
-		a {
-			color: #fff;
-		}
+	.designSection {
+		@extend .devSection;
 	}
-}
-
-.whySection {
-	text-align: center;
-	height: 500px;
-
 }
 
 
