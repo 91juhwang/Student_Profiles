@@ -1,5 +1,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "home";
 
 .experiences {
 	border-bottom: 1px solid grey;
@@ -7,4 +8,8 @@
 
 .educations {
 	border-bottom: 1px solid grey;
+}
+
+.navbar.navbar-default {
+	margin: 0;
 }
