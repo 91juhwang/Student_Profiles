@@ -9,16 +9,17 @@ class ExperiencesController < ApplicationController
 	def edit
 		@profile = Profile.find(params[:profile_id])
 		@experience = @profile.experiences.find(params[:id])
+		respond_to do |format|
+			format.html { render "profiles/show.html"}
+		end
 	end
 
 	def update
 		@profile = Profile.find(params[:profile_id])
 		@experience = @profile.experiences.find(params[:id])
-		if @experience.update(experience_params)
-			redirect_to @profile
-		else 
-			flash[:alert] = "Could not save"
-			redirect_to @profile
+		@experience.update(experience_params)
+		respond_to do |format|
+			format.js
 		end
 	end
 
