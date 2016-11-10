@@ -1,3 +1,6 @@
+<%= link_to "All Designers", designers_path %> <br>
+<%= link_to "All Developers", developers_path %>
+
 <h3>Current Student's profile</h3>
 
 <p>student_id: <%= @profile.student.id %></p>
@@ -6,6 +9,8 @@ Name: <%= @profile.name %> <br>
 Summary: <%= @profile.description %> <br>
 <%= @profile.location %>
 <%= @profile.course %>
+<br>
+<%= link_to "Edit", edit_profile_path %>
 
 <hr>
 

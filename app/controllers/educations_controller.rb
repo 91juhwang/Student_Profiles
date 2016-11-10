@@ -17,6 +17,7 @@ class EducationsController < ApplicationController
 
 	def update
 		@profile = Profile.find(params[:profile_id])
+		
 	end
 
 	def destroy

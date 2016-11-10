@@ -1,6 +1,6 @@
 <h3>All Profiles</h3>
 
-<% @profiles.each do |p| %>
+<% @profiles.order("updated_at DESC").each do |p| %>
 	<li>Student_id: <%= p.student_id %></li>
 	<li>Profile id: <%= p.id %></li>
 	<li><%= p.name %></li>
