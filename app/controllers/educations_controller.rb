@@ -12,10 +12,11 @@ class EducationsController < ApplicationController
 	end
 
 	def edit
-	end
-	
-	def update
 		
+	end
+
+	def update
+		@profile = Profile.find(params[:profile_id])
 	end
 
 	def destroy
