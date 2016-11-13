@@ -33,6 +33,12 @@ body {
 .forDevAndDes {
 	background-color: #222;
 	padding: 30px;
+	position: fixed;
+	width: 100%;
+
+	@media (max-width: 600px) {
+		position: relative;
+	}
 
 	.devSection {
 		text-align: center;
@@ -74,6 +80,15 @@ body {
     p {
     	font-weight: 100;
     	text-shadow: 1px 1px 2px #8b8989;
+    }
+
+    .btn-primary{
+    	background-color: transparent;
+    	border: 2px solid #222;;
+    }
+
+    .btn-primary:active:focus {
+    	background-color: #8b8989;
     }
 
 }
