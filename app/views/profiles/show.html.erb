@@ -1,11 +1,16 @@
+<%= link_to "All Designers", designers_path %> <br>
+<%= link_to "All Developers", developers_path %>
+
 <h3>Current Student's profile</h3>
 
 <p>student_id: <%= @profile.student.id %></p>
 <p>profile_id: <%= @profile.id %></p>
 Name: <%= @profile.name %> <br>
-Summary: <%= @profile.description %> <br>
+Status: <%= @profile.status %> <br>
 <%= @profile.location %>
 <%= @profile.course %>
+<br>
+<%= link_to "Edit", edit_profile_path %>
 
 <hr>
 
@@ -28,7 +33,7 @@ Summary: <%= @profile.description %> <br>
 		<div class="experiences">
 			<p>Position: <%= e.title %></p>
 			<p>Company: <%= e.company %></p>
-			<p>Description:<%= e.description %></p>
+			<p>Status:<%= e.description %></p>
 			<p>Started: <%= e.start %></p>
 			<p>End: <%= e.end %></p>
 		</div>

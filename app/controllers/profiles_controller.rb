@@ -21,13 +21,23 @@ class ProfilesController < ApplicationController
 		end
 	end
 
-	def update
+	def edit
+		@profile = Profile.find(params[:id])
+	end
 
+	def update
+		@profile = Profile.find(params[:id])
+		if @profile.update(profile_params)
+			redirect_to show
+		else
+			flash[:alert] = "Please try again, please contact NYCDA if it continues"
+			redirect_to show
+		end
 	end
 
 	private
 	def profile_params
-		params.require(:profile).permit(:name, :description, :location, :student_id)
+		params.require(:profile).permit(:name, :status, :location, :student_id)
 	end
 
 end

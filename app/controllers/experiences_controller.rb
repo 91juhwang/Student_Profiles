@@ -11,6 +11,7 @@ class ExperiencesController < ApplicationController
 		@experience = @profile.experiences.find(params[:id])
 		respond_to do |format|
 			format.html { render "profiles/show.html"}
+			format.js
 		end
 	end
 
