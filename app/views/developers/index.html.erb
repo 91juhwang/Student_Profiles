@@ -1,12 +1,15 @@
-<div>
-	<h2>
-		Developers
-	</h2>
-	<!-- Designers view page -->
-	<div class="student_lists">
+<div class="devPageHeader">
+	<div class="container">
+		<h1>Meet Our Developers</h1>
+	</div>
+</div>
+
+<div class="container">
+	<!-- Devs view page -->
+	<div class="devList">
 		<% @developers.each do |dev| %>
 			<% if !dev.profile.nil? && !dev.profile.experiences.last.nil? && !dev.profile.educations.last.nil? %>
-				<h4><%= link_to dev.profile.name, profile_path(dev.profile.id) %></h4>
+				<h1><%= link_to dev.profile.name, profile_path(dev.profile.id) %></h1>
 				<h4>I am Currently..: <%= dev.profile.status %> </h4>
 				<p>
 					Previously a <%= dev.profile.experiences.last.title %>
@@ -25,4 +28,5 @@
 	</div>
 	<div class="paginate_nav">
 		<%= will_paginate @developers %>
-	</div>	
+	</div>
+</div>	

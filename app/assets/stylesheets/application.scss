@@ -1,7 +1,8 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "home";
- @import "profiles";
+ @import "developers";
+ @import "designers";
  @import url('https://fonts.googleapis.com/css?family=Work+Sans:100,300');
 
 .experiences {
@@ -14,4 +15,8 @@
 
 .navbar.navbar-default {
 	margin: 0;
+}
+
+.alert {
+	margin-bottom: 0;
 }

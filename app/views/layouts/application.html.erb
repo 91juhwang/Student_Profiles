@@ -27,7 +27,7 @@
 	      <ul class="nav navbar-nav">
 	        <li><%= link_to "OUR GRADUATES", profiles_path %></li>
 	        <% if student_signed_in? && !current_student.profile.nil? %>
-	        <li><%= link_to "POST A JOBS", jobs_path %></li>
+	        <li><%= link_to "JOBS", jobs_path %></li>
 	      </ul>
 
 	      <ul class="nav navbar-nav navbar-right">
@@ -57,10 +57,10 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 
-<div class="container">
+
 	<%= content_tag :div, flash[:notice], class: "alert alert-success" if flash[:notice] %>
 	<%= content_tag :div, flash[:alert], class: "alert alert-danger" if flash[:alert] %>
-</div>
+
 
 	<%= yield %>
 

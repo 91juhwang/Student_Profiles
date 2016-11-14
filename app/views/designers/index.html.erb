@@ -1,11 +1,16 @@
-<div>
-	<h2>
-		Designers
-	</h2>
+<div class="desPageHeader">
+	<div class="container">
+		<h1>Meet Our Designers</h1>
+	</div>
+</div>
+
+
+<div class="container">
+
 	<!-- Designers view page -->
-	<div class="student_lists">
+	<div class="desList">
 		<% @designers.each do |des| %>
-			<% if des.profile != nil && !des.profile.experiences.nil? && !des.profile.educations.nil? %>
+			<% if !des.profile.nil? && !des.profile.experiences.last.nil? && !des.profile.educations.last.nil? %>
 				<h4><%= link_to des.profile.name, profile_path(des.profile.id) %></h4>
 				<h4>I am Currently..: <%= des.profile.status %> </h4>
 				<p>

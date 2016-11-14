@@ -1,50 +1,52 @@
-<%= link_to "All Designers", designers_path %> <br>
-<%= link_to "All Developers", developers_path %>
+<div class="container">
+	<%= link_to "All Designers", designers_path %> <br>
+	<%= link_to "All Developers", developers_path %>
 
-<h3>Current Student's profile</h3>
+	<h3>Current Student's profile</h3>
 
-<p>student_id: <%= @profile.student.id %></p>
-<p>profile_id: <%= @profile.id %></p>
-Name: <%= @profile.name %> <br>
-Status: <%= @profile.status %> <br>
-<%= @profile.location %>
-<%= @profile.course %>
-<br>
-<%= link_to "Edit", edit_profile_path %>
+	<p>student_id: <%= @profile.student.id %></p>
+	<p>profile_id: <%= @profile.id %></p>
+	Name: <%= @profile.name %> <br>
+	Status: <%= @profile.status %> <br>
+	<%= @profile.location %>
+	<%= @profile.course %>
+	<br>
+	<%= link_to "Edit", edit_profile_path %>
 
-<hr>
+	<hr>
 
-<% if student_signed_in? && @profile.student.id == current_student.id %>
-	<%= render "skills/form" %>
-	<%= render "skills/skills" %>
-	<%= render "experiences/form" %>
-	<%= render "experiences/experiences" %>
-	<%= render "educations/form" %>
-	<%= render "educations/educations" %>
-<% else %>
-	<h3>Skills: </h3>
-	<ul>
-		<% @profile.skills.each do |s| %>
-			<li><%= s.name %></li>
+	<% if student_signed_in? && @profile.student.id == current_student.id %>
+		<%= render "skills/form" %>
+		<%= render "skills/skills" %>
+		<%= render "experiences/form" %>
+		<%= render "experiences/experiences" %>
+		<%= render "educations/form" %>
+		<%= render "educations/educations" %>
+	<% else %>
+		<h3>Skills: </h3>
+		<ul>
+			<% @profile.skills.each do |s| %>
+				<li><%= s.name %></li>
+			<% end %>
+		</ul>
+		<h3>Experiences: </h3>
+		<% @profile.experiences.each do |e| %>
+			<div class="experiences">
+				<p>Position: <%= e.title %></p>
+				<p>Company: <%= e.company %></p>
+				<p>Status:<%= e.description %></p>
+				<p>Started: <%= e.start %></p>
+				<p>End: <%= e.end %></p>
+			</div>
 		<% end %>
-	</ul>
-	<h3>Experiences: </h3>
-	<% @profile.experiences.each do |e| %>
-		<div class="experiences">
-			<p>Position: <%= e.title %></p>
-			<p>Company: <%= e.company %></p>
-			<p>Status:<%= e.description %></p>
-			<p>Started: <%= e.start %></p>
-			<p>End: <%= e.end %></p>
-		</div>
+		<h3>Educations: </h3>
+		<% @profile.educations.each do |e| %>
+			<div class="educations">
+				<p>School: <%= e.school %></p>
+				<p>Major: <%= e.major %></p>
+				<p>Started: <%= e.start %></p>
+				<p>Graduated: <%= e.graduate %></p>
+			</div>
+		<% end %>
 	<% end %>
-	<h3>Educations: </h3>
-	<% @profile.educations.each do |e| %>
-		<div class="educations">
-			<p>School: <%= e.school %></p>
-			<p>Major: <%= e.major %></p>
-			<p>Started: <%= e.start %></p>
-			<p>Graduated: <%= e.graduate %></p>
-		</div>
-	<% end %>
-<% end %>
+</div>
