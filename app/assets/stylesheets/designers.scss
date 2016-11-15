@@ -8,10 +8,26 @@
 	padding: 10% 0;
 	background: url(des.jpg) center center;
 	background-size: cover;
-	margin-bottom: 5%;
 
 	h1 {
 		font-weight: 300;
 		color: #fff;
+	}
+}
+
+
+.desList {
+	margin: 10% auto;
+
+	h2 {
+		font-weight: 300;
+		a {
+			color: #111;
+		}
+	}
+
+	.location { 
+		font-weight: 100;
+		color: #888;
 	}
 }

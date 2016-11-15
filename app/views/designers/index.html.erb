@@ -9,25 +9,50 @@
 
 	<!-- Designers view page -->
 	<div class="desList">
+
 		<% @designers.each do |des| %>
 			<% if !des.profile.nil? && !des.profile.experiences.last.nil? && !des.profile.educations.last.nil? %>
-				<h4><%= link_to des.profile.name, profile_path(des.profile.id) %></h4>
-				<h4>I am Currently..: <%= des.profile.status %> </h4>
-				<p>
-					Previously a <%= des.profile.experiences.last.title %>
-					at <%= des.profile.experiences.last.company %>
-				</p>
-				<p>
-					Degree in <%= des.profile.educations.last.major %>
-					at <%= des.profile.educations.last.school %>
-				</p>
-				<strong>Skills: </strong>
-				<% des.profile.skills.each do |s| %>
-					<%= s.name %>, 
-				<% end %>
+		<!-- Name -->
+			<h2><%= link_to des.profile.name.capitalize, profile_path(des.profile.id) %></h2>
+		<!-- Status -->
+			<h4><em>I'm currently... <%= des.profile.status %> </em></h4>
+		<!-- location -->
+			<h5 class="location">
+				<span class="glyphicon glyphicon-map-marker"></span> <%= des.profile.location %> 
+			</h5><br>
+
+			<div class="row">
+				<!-- Experiences -->
+				<div class="col-md-4">
+					<p>
+						<span class="glyphicon glyphicon-briefcase"></span>
+						Previously a <%= des.profile.experiences.last.title %>
+						at <%= des.profile.experiences.last.company %>
+					</p>
+				</div>
+				<!-- Education -->
+				<div class="col-md-4">
+					<p>
+						<span class="glyphicon glyphicon-education"></span>
+						Degree in <%= des.profile.educations.last.major %>
+						at <%= des.profile.educations.last.school %>
+					</p>
+				</div>
+				<!-- Skills -->
+				<div class="col-md-4">
+					<p>
+						<span class="glyphicon glyphicon-wrench"></span>
+						<% des.profile.skills.each do |s| %>
+							{ <%= s.name %> }
+						<% end %>
+					</p>
+				</div>
+			</div>
+			<hr>
 			<% end %>
 		<% end %>
 	</div>
+	<!-- paginate -->
 	<div class="paginate_nav">
 		<%= will_paginate @designers %>
 	</div>	
