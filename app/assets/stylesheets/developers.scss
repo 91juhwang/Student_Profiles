@@ -17,4 +17,16 @@
 
 .devList {
 	margin: 10% auto;
+
+	h2 {
+		font-weight: 300;
+		a {
+			color: #111;
+		}
+	}
+
+	.location { 
+		font-weight: 100;
+		color: #888;
+	}
 }

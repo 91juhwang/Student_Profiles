@@ -9,23 +9,45 @@
 	<div class="devList">
 		<% @developers.each do |dev| %>
 			<% if !dev.profile.nil? && !dev.profile.experiences.last.nil? && !dev.profile.educations.last.nil? %>
-				<h1><%= link_to dev.profile.name, profile_path(dev.profile.id) %></h1>
-				<h4>I am Currently..: <%= dev.profile.status %> </h4>
+			<!-- Name -->
+				<h2><%= link_to dev.profile.name.capitalize, profile_path(dev.profile.id) %></h2>
+			<!-- Status -->
+				<h4><em>I'm currently... <%= dev.profile.status %> </em></h4>
+			<!-- location -->
+				<h5 class="location"><em>Based in... <%= dev.profile.location %> </em></h5><br>
+
+		<div class="row">
+			<!-- Experiences -->
+			<div class="col-md-4">
 				<p>
+					<span class="glyphicon glyphicon-briefcase"></span>
 					Previously a <%= dev.profile.experiences.last.title %>
 					at <%= dev.profile.experiences.last.company %>
 				</p>
+			</div>
+			<!-- Education -->
+			<div class="col-md-4">
 				<p>
+					<span class="glyphicon glyphicon-education"></span>
 					Degree in <%= dev.profile.educations.last.major %>
 					at <%= dev.profile.educations.last.school %>
 				</p>
-				<strong>Skills: </strong>
-				<% dev.profile.skills.each do |s| %>
-					<%= s.name %>, 
-				<% end %>
+			</div>
+			<!-- Skills -->
+			<div class="col-md-4">
+				<p>
+					<span class="glyphicon glyphicon-wrench"></span>
+					<% dev.profile.skills.each do |s| %>
+						{ <%= s.name %> }
+					<% end %>
+				</p>
+			</div>
+		</div>
+		<hr>
 			<% end %>
 		<% end %>
 	</div>
+	<!-- Paginate -->
 	<div class="paginate_nav">
 		<%= will_paginate @developers %>
 	</div>
