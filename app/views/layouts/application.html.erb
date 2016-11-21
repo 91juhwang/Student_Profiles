@@ -3,6 +3,7 @@
 <head>
   <title>Profiles</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= favicon_link_tag 'logo.png' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -49,8 +50,8 @@
 	      <% else %>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><%= link_to "SIGN IN", student_session_path %></li>
-			<li><%= link_to "SIGN UP", new_student_registration_path %></li>
+	        <li><%= link_to "LOGIN", student_session_path %></li>
+			<!-- <li><%= link_to "SIGN UP", new_student_registration_path %></li> -->
 	      </ul>
 	      <% end %>
 	    </div><!-- /.navbar-collapse -->

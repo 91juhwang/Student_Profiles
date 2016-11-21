@@ -12,7 +12,7 @@ body {
 
 
 .homeHeader {
-	background: url("babe2.jpg") center center;
+	background: url("header.jpg") center center;
 	background-size: cover;
 	height: 85vh;
 	width: 100%;
@@ -24,69 +24,80 @@ body {
 	}
 
 	h1 {
-		margin: 0;
 		color: #fff;
 		text-shadow: 1px 1px 2px #8b8989;
 		font-weight: 300;
+		margin: 0;
 	}
 }
 
 
 
-.forDevAndDes {
+.forFixedBar {
 	background-color: #222;
 	padding: 31px;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 	text-align: center;
+	z-index: 99;
 
 	@media (max-width: 856px) {
 		position: relative;
 		text-align: left;
 	}
 
-	.devSection {
-
-		img {
-			width: 100%;
-		}
-
+	.titleSection {
 		h2 {
 			margin: 0;
-			font-weight: 100;
+			font-weight: 300;
+
 			a {
 				color: #fff;
+				font-weight: 100;
 			}
 		}
 	}
 
+	.devSection {
+		@extend .titleSection;
+	}
+
 	.designSection {
-		@extend .devSection;
+		@extend .titleSection;
 	}
 }
 
 
 
 .whySection {
-	background: url("ny2.jpg") center center;
-	background-size: cover;
 	height: 100%;
 	width: 100%;
-    padding-top: 18%;
-    padding-bottom: 18%;
-    color: #fff;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    color: #111;
 
     h1 {
-    	color: #111;
     	font-weight: 300;
     }
 
-    p {
+    h4 {
     	font-weight: 100;
-    	text-shadow: 1px 1px 2px #8b8989;
     }
 
+}
+
+
+.companySignUp {
+	@extend .whySection;
+	background: url("nyStreet.jpg") center center;
+	background-size: cover;
+	color: #fff;
+	z-index: -99;
+
+	h1, h4 {
+		text-shadow: 1px 1px 2px #8b8989;
+	}
 }
 
 
