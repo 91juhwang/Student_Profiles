@@ -4,6 +4,7 @@
 	<%= link_to "All Developers", developers_path %>
 
 	<% @profiles.order("updated_at DESC").each do |p| %>
+		<li><%= image_tag p.avatar.url(:thumb) %></li>
 		<li>Student_id: <%= p.student_id %></li>
 		<li>Profile id: <%= p.id %></li>
 		<li><%= p.name %></li>

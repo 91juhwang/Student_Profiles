@@ -12,6 +12,8 @@
 
 		<% @designers.each do |des| %>
 			<% if !des.profile.nil? && !des.profile.experiences.last.nil? && !des.profile.educations.last.nil? %>
+		<!-- picture -->
+		<%= image_tag des.profile.avatar.url(:thumb) if des.profile.avatar %>
 		<!-- Name -->
 			<h2><%= link_to des.profile.name.capitalize, profile_path(des.profile.id) %></h2>
 		<!-- Status -->

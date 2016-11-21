@@ -9,6 +9,8 @@
 	<div class="devList">
 		<% @developers.each do |dev| %>
 			<% if !dev.profile.nil? && !dev.profile.experiences.last.nil? && !dev.profile.educations.last.nil? %>
+			<!-- picture -->
+			<%= image_tag dev.profile.avatar.url(:thumb) if dev.profile.avatar %>
 			<!-- Name -->
 				<h2><%= link_to dev.profile.name.capitalize, profile_path(dev.profile.id) %></h2>
 			<!-- Status -->
