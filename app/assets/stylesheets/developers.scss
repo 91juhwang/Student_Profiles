@@ -18,6 +18,12 @@
 .devList {
 	margin: 10% auto;
 
+	.devAvatar {
+		img {
+			border-radius: 50%;
+		}
+	}
+
 	h2 {
 		font-weight: 300;
 		a {

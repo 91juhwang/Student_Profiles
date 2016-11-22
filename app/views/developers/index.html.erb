@@ -6,11 +6,15 @@
 
 <div class="container">
 	<!-- Devs view page -->
-	<div class="devList">
+	<div class="devList row">
 		<% @developers.each do |dev| %>
 			<% if !dev.profile.nil? && !dev.profile.experiences.last.nil? && !dev.profile.educations.last.nil? %>
 			<!-- picture -->
-			<%= image_tag dev.profile.avatar.url(:thumb) if dev.profile.avatar %>
+			<div class="col-md-2 devAvatar">
+				<%= image_tag dev.profile.avatar.url(:thumb) if dev.profile.avatar %>
+			</div>
+
+			<div class="col-md-6">
 			<!-- Name -->
 				<h2><%= link_to dev.profile.name.capitalize, profile_path(dev.profile.id) %></h2>
 			<!-- Status -->
@@ -19,8 +23,9 @@
 				<h5 class="location">
 					<span class="glyphicon glyphicon-map-marker"></span> <%= dev.profile.location %> 
 				</h5><br>
+			</div>
 
-		<div class="row">
+		<div class="row container">
 			<!-- Experiences -->
 			<div class="col-md-4">
 				<p>
