@@ -18,7 +18,7 @@
 			<!-- Name -->
 				<h2><%= link_to dev.profile.name.capitalize, profile_path(dev.profile.id) %></h2>
 			<!-- Status -->
-				<h4><em>I'm currently... <%= dev.profile.status %> </em></h4>
+				<h4><em>I'm currently <%= dev.profile.status %> </em></h4>
 			<!-- location -->
 				<h5 class="location">
 					<span class="glyphicon glyphicon-map-marker"></span> <%= dev.profile.location %> 
@@ -30,16 +30,16 @@
 			<div class="col-md-4">
 				<p>
 					<span class="glyphicon glyphicon-briefcase"></span>
-					Previously a <%= dev.profile.experiences.last.title %>
-					at <%= dev.profile.experiences.last.company %>
+					Previously a <b><%= dev.profile.experiences.last.title %></b>
+					at <b><%= dev.profile.experiences.last.company %></b>
 				</p>
 			</div>
 			<!-- Education -->
 			<div class="col-md-4">
 				<p>
 					<span class="glyphicon glyphicon-education"></span>
-					Degree in <%= dev.profile.educations.last.major %>
-					at <%= dev.profile.educations.last.school %>
+					Degree in <b><%= dev.profile.educations.last.major %></b>
+					at <b><%= dev.profile.educations.last.school %></b>
 				</p>
 			</div>
 			<!-- Skills -->
