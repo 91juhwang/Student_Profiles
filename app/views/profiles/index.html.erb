@@ -19,5 +19,9 @@
 		<li><%= link_to "View this candidate", profile_path(p.id) %></li>
 		<hr>
 	<% end %>
+		<!-- paginate nav bar-->
+	<div class="paginate_nav">
+		<%= will_paginate @designers %>
+	</div>	
 </div>
 
