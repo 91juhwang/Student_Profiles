@@ -3,3 +3,37 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+.gradPageHeader {
+	width: 100%;
+	padding: 10% 0;
+	background: url(grads.jpg) center center;
+	background-size: cover;
+
+	h1 {
+		font-weight: 300;
+		color: #fff;
+	}
+}
+
+.gradList {
+	margin: 10% auto;
+
+	.gradAvatar {
+		img {
+			border-radius: 50%;
+		}
+	}
+
+	h2 {
+		font-weight: 300;
+		a {
+			color: #111;
+		}
+	}
+
+	.location { 
+		font-weight: 100;
+		color: #888;
+	}
+}
