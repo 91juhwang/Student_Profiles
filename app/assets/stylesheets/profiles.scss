@@ -22,11 +22,13 @@
 	.gradAvatar {
 		img {
 			border-radius: 50%;
+			margin-bottom: 20px;
 		}
 	}
 
 	h2 {
 		font-weight: 300;
+		margin-top: 0;
 		a {
 			color: #111;
 		}
@@ -37,3 +39,59 @@
 		color: #888;
 	}
 }
+
+
+
+// show page
+
+.candPageHeader {
+	width: 100%;
+	padding: 10% 0;
+	background-color: #222;
+
+	h3 {
+		font-weight: 100;
+		color: #fff;
+	}
+}
+
+.candProfile {
+	margin: 8% auto;
+
+	.candAvatar {
+		img {
+			border-radius: 50%;
+		}
+	}
+
+	.candInfo {
+		h1 {
+			font-weight: 600;	
+		}
+
+		h3 {
+			font-weight: 100;
+		}	
+
+		h4 {
+			font-weight: 600;
+		}
+
+		ul {
+			li {
+				list-style: none;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

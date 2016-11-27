@@ -22,32 +22,32 @@
 
 			<div class="col-md-6">
 			<!-- Name -->
-				<h2><%= link_to p.name.capitalize, profile_path(p.id) %></h2>
+				<h2><%= link_to p.name.titleize, profile_path(p.id) %></h2>
 			<!-- Status -->
-				<h4><em>I'm currently <%= p.status %> </em></h4>
+				<h4><em>Currently <%= p.status %> </em></h4>
 			<!-- location -->
 				<h5 class="location">
-					<span class="glyphicon glyphicon-map-marker"></span> <%= p.location %>
+					<span class="glyphicon glyphicon-map-marker"></span> <%= p.location.titleize %>
 				</h5><br>
 			</div>
 
 		<div class="row container">
 			<!-- Experiences -->
-			<div class="col-md-4">
+			<!-- <div class="col-md-4">
 				<p>
 					<span class="glyphicon glyphicon-briefcase"></span>
-					Previously a <b><%= p.experiences.last.title %></b>
-					at <b><%= p.experiences.last.company %></b>
+					Previously a <b><%= p.experiences.last %></b>
+					at <b><%= p.experiences.last %></b>
 				</p>
-			</div>
+			</div> -->
 			<!-- Education -->
-			<div class="col-md-4">
+			<!-- <div class="col-md-4">
 				<p>
 					<span class="glyphicon glyphicon-education"></span>
-					Degree in <b><%= p.educations.last.major %></b>
-					at <b><%= p.educations.last.school %></b>
+					Degree in <b><%= p.educations.last %></b>
+					at <b><%= p.educations.last %></b>
 				</p>
-			</div>
+			</div> -->
 			<!-- Skills -->
 			<div class="col-md-4">
 				<p>

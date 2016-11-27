@@ -1,52 +1,64 @@
-<div class="container">
-	<%= link_to "All Designers", designers_path %> <br>
-	<%= link_to "All Developers", developers_path %>
+<div class="candPageHeader">
+	<div class="container">
+		<div class="col-md-10 col-md-offset-1">
+			<h3><em>"Before NYCDA, I was working as a <%= @profile.experiences.last.title %>, now I am <%= @profile.status %>. Read the rest of my journey below."</em></h3>
+		</div>
+	</div>
+</div>
 
-	<h3>Current Student's profile</h3>
-	<%= image_tag @profile.avatar.url(:medium) %>
-	<p>student_id: <%= @profile.student.id %></p>
-	<p>profile_id: <%= @profile.id %></p>
-	Name: <%= @profile.name %> <br>
-	Status: <%= @profile.status %> <br>
-	<%= @profile.location %>
-	<%= @profile.course %>
-	<br>
-	<%= link_to "Edit", edit_profile_path %>
 
-	<hr>
+<div class="container candProfile">
+	<div class="row">
+		<div class="candAvatar col-md-2 col-md-offset-1">
+			<%= image_tag @profile.avatar.url(:thumb) %>
+		</div>
 
-	<% if student_signed_in? && @profile.student.id == current_student.id %>
-		<%= render "skills/form" %>
-		<%= render "skills/skills" %>
-		<%= render "experiences/form" %>
-		<%= render "experiences/experiences" %>
-		<%= render "educations/form" %>
-		<%= render "educations/educations" %>
-	<% else %>
-		<h3>Skills: </h3>
-		<ul>
-			<% @profile.skills.each do |s| %>
-				<li><%= s.name %></li>
-			<% end %>
-		</ul>
-		<h3>Experiences: </h3>
-		<% @profile.experiences.each do |e| %>
-			<div class="experiences">
-				<p>Position: <%= e.title %></p>
-				<p>Company: <%= e.company %></p>
-				<p>Status:<%= e.description %></p>
-				<p>Started: <%= e.start %></p>
-				<p>End: <%= e.end %></p>
-			</div><hr>
-		<% end %>
-		<h3>Educations: </h3>
-		<% @profile.educations.each do |e| %>
-			<div class="educations">
-				<p>School: <%= e.school %></p>
-				<p>Major: <%= e.major %></p>
-				<p>Started: <%= e.start %></p>
-				<p>Graduated: <%= e.graduate %></p>
-			</div><hr>
-		<% end %>
+		<% if student_signed_in? && @profile.student.id == current_student.id %>
+			<%= link_to "Edit", edit_profile_path %>
+			<%= render "skills/form" %>
+			<%= render "skills/skills" %>
+			<%= render "experiences/form" %>
+			<%= render "experiences/experiences" %>
+			<%= render "educations/form" %>
+			<%= render "educations/educations" %>
+		<% else %>
+		<div class="candInfo col-md-8">
+			<h1><%= @profile.name.titleize %></h1>
+			<p>
+				<span class="glyphicon glyphicon-map-marker"></span> <%= @profile.location.titleize %>
+			</p><hr>
+
+			<h3>Work Experience</h3><br>
+			<ul>
+				<% @profile.experiences.each do |e| %>
+				<li>
+					<h4><%= e.title.titleize %> at <%= e.company.titleize %></h4>
+					<p>From <%= e.start %> to <%= e.end %></p>
+					<p><%= e.description.capitalize %></p>
+				</li><br>
+				<% end %>
+			</ul>
+
+			<h3>Education</h3><br>
+			<ul>
+				<% @profile.educations.each do |e| %>
+				<li>
+					<h4><%= e.major.titleize %> at <%= e.school.titleize %></h4>
+					<p><%= e.start %> to <%= e.graduate %></p>
+				</li><br>
+				<% end %>
+			</ul>
+
+			<h3>Skills</h3><br>
+			<p>
+				<% @profile.skills.each do |s| %>
+					{ <%= s.name %> }
+				<% end %>
+			</p>
+		</div>
+	</div>
 	<% end %>
 </div>
+
+<!-- 	<%= link_to "All Designers", designers_path %> <br>
+	<%= link_to "All Developers", developers_path %> -->

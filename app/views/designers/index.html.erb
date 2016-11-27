@@ -19,12 +19,12 @@
 
 		<div class="col-md-6">
 		<!-- Name -->
-			<h2><%= link_to des.profile.name.capitalize, profile_path(des.profile.id) %></h2>
+			<h2><%= link_to des.profile.name.titleize, profile_path(des.profile.id) %></h2>
 		<!-- Status -->
-			<h4><em>I'm currently... <%= des.profile.status %> </em></h4>
+			<h4><em>Currently... <%= des.profile.status %> </em></h4>
 		<!-- location -->
 			<h5 class="location">
-				<span class="glyphicon glyphicon-map-marker"></span> <%= des.profile.location %> 
+				<span class="glyphicon glyphicon-map-marker"></span> <%= des.profile.location.titleize %> 
 			</h5><br>
 		</div>
 

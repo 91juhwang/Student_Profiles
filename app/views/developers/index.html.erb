@@ -16,12 +16,12 @@
 
 			<div class="col-md-6">
 			<!-- Name -->
-				<h2><%= link_to dev.profile.name.capitalize, profile_path(dev.profile.id) %></h2>
+				<h2><%= link_to dev.profile.name.titleize, profile_path(dev.profile.id) %></h2>
 			<!-- Status -->
-				<h4><em>I'm currently <%= dev.profile.status %> </em></h4>
+				<h4><em>Currently <%= dev.profile.status %> </em></h4>
 			<!-- location -->
 				<h5 class="location">
-					<span class="glyphicon glyphicon-map-marker"></span> <%= dev.profile.location %> 
+					<span class="glyphicon glyphicon-map-marker"></span> <%= dev.profile.location.titleize %> 
 				</h5><br>
 			</div>
 
