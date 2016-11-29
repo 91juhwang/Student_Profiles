@@ -1,27 +1,68 @@
-<h3>Current Student's profile</h3>
+<div class="candPageHeader">
+	<div class="container">
+		<div class="col-md-10 col-md-offset-1">
+			<% if @profile.experiences.last.nil? %>
+				<h3><em>I am <%= @profile.status %>. Read the rest of my journey below.</em></h3>
+			<% else %>		
+				<h3><em>"Before NYCDA, I was working as a <%= @profile.experiences.last.title %>, now I am <%= @profile.status %>. Read the rest of my journey below."</em></h3>
+			<% end %>
+		</div>
+	</div>
+</div>
 
-<p>student_id: <%= @profile.student.id %></p>
-<p>profile_id: <%= @profile.id %></p>
-<%= @profile.name %>
-<%= @profile.description %>
-<%= @profile.location %>
-<%= @profile.course %>
 
-<!-- Skills Section -->
-<% if student_signed_in? && @profile.student.id == current_student.id %>
-	<%= render "skills/form" %>
-	<%= render "skills/skills" %>
-<% else %>
-	<h3>Skills: </h3>
-	<ul>
-		<% @profile.skills.each do |s| %>
-			<li>
-				<%= s.name %>
-			</li>
-		<% end %>
-	</ul>
-<% end %>
+<div class="container candProfile">
+	<div class="row">
+		<div class="candAvatar col-md-2 col-md-offset-1">
+			<%= image_tag @profile.avatar.url(:thumb) %>
+		</div>
 
-<!-- Experience Section -->
+		<% if student_signed_in? && @profile.student.id == current_student.id %>
+			<%= link_to "Edit", edit_profile_path %>
+			<%= render "skills/form" %>
+			<%= render "skills/skills" %>
+			<%= render "experiences/form" %>
+			<%= render "experiences/experiences" %>
+			<%= render "educations/form" %>
+			<%= render "educations/educations" %>
+		<% else %>
+		<div class="candInfo col-md-8">
+			<h1><%= @profile.name.titleize %></h1>
+			<p>
+				<span class="glyphicon glyphicon-map-marker"></span> <%= @profile.location.titleize %>
+			</p><hr>
 
-<!-- Educatino Section -->
+			<h3>Work Experience</h3><br>
+			<ul>
+				<% @profile.experiences.each do |e| %>
+				<li>
+					<h4><%= e.title.titleize %> at <%= e.company.titleize %></h4>
+					<p>From <%= e.start %> to <%= e.end %></p>
+					<p><%= e.description.capitalize %></p>
+				</li><br>
+				<% end %>
+			</ul>
+
+			<h3>Education</h3><br>
+			<ul>
+				<% @profile.educations.each do |e| %>
+				<li>
+					<h4><%= e.major.titleize %> at <%= e.school.titleize %></h4>
+					<p><%= e.start %> to <%= e.graduate %></p>
+				</li><br>
+				<% end %>
+			</ul>
+
+			<h3>Skills</h3><br>
+			<p>
+				<% @profile.skills.each do |s| %>
+					{ <%= s.name %> }
+				<% end %>
+			</p>
+		</div>
+	</div>
+	<% end %>
+</div>
+
+<!-- 	<%= link_to "All Designers", designers_path %> <br>
+	<%= link_to "All Developers", developers_path %> -->

@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 	def index
-		@profiles = Profile.all
+		@profiles = Profile.all.paginate(:page => params[:page], :per_page => 10)
 	end
 
 	def new
@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def show
-		@profile = Profile.find(params[:id])
+		@profile = Profile.find(params[:id]) 
 	end
 
 	def create
@@ -21,13 +21,23 @@ class ProfilesController < ApplicationController
 		end
 	end
 
-	def update
+	def edit
+		@profile = Profile.find(params[:id])
+	end
 
+	def update
+		@profile = Profile.find(params[:id])
+		if @profile.update(profile_params)
+			redirect_to show
+		else
+			flash[:alert] = "Please try again, please contact NYCDA if it continues"
+			redirect_to show
+		end
 	end
 
 	private
 	def profile_params
-		params.require(:profile).permit(:name, :description, :location, :student_id)
+		params.require(:profile).permit(:name, :status, :location, :student_id, :avatar)
 	end
 
 end

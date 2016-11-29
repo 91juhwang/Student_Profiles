@@ -1,17 +1,70 @@
-<h3>All Profiles</h3>
+<!-- <div class="miniNav">
+	<ul>
+		<li><%= link_to "All Designers", designers_path %></li> 
+		<li><%= link_to "All Developers", developers_path %></li>
+	</ul>
+</div> -->
 
-<% @profiles.each do |p| %>
-	<li>Student_id: <%= p.student_id %></li>
-	<li>Profile id: <%= p.id %></li>
-	<li><%= p.name %></li>
-	<li><%= p.description %></li>
-	<li><%= p.location %></li>
-	<li> 
-		Skills: <% p.skills.each do |s| %>
-			<%= s.name %> 
-		<%end %>
-	</li>
-	<li><%= link_to "View this candidate", profile_path(p.id) %></li>
-	<hr>
-<% end %>
+<div class="gradPageHeader">
+	<div class="container">
+		<h1>Meet Our Graduates</h1>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="gradList row">
+		<% @profiles.order("updated_at DESC").each do |p| %>
+			<% if !p.experiences.last.nil? && !p.educations.last.nil? && !p.skills.nil? %>
+				<!-- picture -->
+				<div class="col-md-2 gradAvatar">
+					<%= image_tag p.avatar.url(:thumb) %>
+				</div>
+
+				<div class="col-md-6">
+				<!-- Name -->
+					<h2><%= link_to p.name.titleize, profile_path(p.id) %></h2>
+				<!-- Status -->
+					<h4><em>Currently <%= p.status %> </em></h4>
+				<!-- location -->
+					<h5 class="location">
+						<span class="glyphicon glyphicon-map-marker"></span> <%= p.location.titleize %>
+					</h5><br>
+				</div>
+				<div class="row container">
+					<!-- Experiences -->
+					<div class="col-md-4">
+						<p>
+							<span class="glyphicon glyphicon-briefcase"></span>
+							Previously a <b><%= p.experiences.last.title %></b>
+							at <b><%= p.experiences.last.company %></b>
+						</p>
+					</div>
+					<!-- Education -->
+					<div class="col-md-4">
+						<p>
+							<span class="glyphicon glyphicon-education"></span>
+							Degree in <b><%= p.educations.last.major %></b>
+							at <b><%= p.educations.last.school %></b>
+						</p>
+					</div>
+					<!-- Skills -->
+					<div class="col-md-4">
+						<p>
+							<span class="glyphicon glyphicon-wrench"></span>
+							<% p.skills.each do |s| %>
+								{ <%= s.name %> }
+							<% end %>
+						</p>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+		<hr>
+	</div>
+	<!-- paginate nav bar-->
+	<div class="paginate_nav">
+		<%= will_paginate @designers %>
+	</div>	
+</div>
 

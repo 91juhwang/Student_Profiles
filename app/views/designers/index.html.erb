@@ -1,0 +1,66 @@
+<div class="desPageHeader">
+	<div class="container">
+		<h1>Meet Our Designers</h1>
+	</div>
+</div>
+
+
+<div class="container">
+
+	<!-- Designers view page -->
+	<div class="desList row">
+
+		<% @designers.each do |des| %>
+			<% if !des.profile.nil? && !des.profile.experiences.last.nil? && !des.profile.educations.last.nil? %>
+		<!-- picture -->
+		<div class="col-md-2 desAvatar">
+			<%= image_tag des.profile.avatar.url(:thumb) if des.profile.avatar %>
+		</div>
+
+		<div class="col-md-6">
+		<!-- Name -->
+			<h2><%= link_to des.profile.name.titleize, profile_path(des.profile.id) %></h2>
+		<!-- Status -->
+			<h4><em>Currently... <%= des.profile.status %> </em></h4>
+		<!-- location -->
+			<h5 class="location">
+				<span class="glyphicon glyphicon-map-marker"></span> <%= des.profile.location.titleize %> 
+			</h5><br>
+		</div>
+
+			<div class="row container">
+				<!-- Experiences -->
+				<div class="col-md-4">
+					<p>
+						<span class="glyphicon glyphicon-briefcase"></span>
+						Previously a <b><%= des.profile.experiences.last.title %></b>
+						at <b><%= des.profile.experiences.last.company %></b>
+					</p>
+				</div>
+				<!-- Education -->
+				<div class="col-md-4">
+					<p>
+						<span class="glyphicon glyphicon-education"></span>
+						Degree in <b><%= des.profile.educations.last.major %></b>
+						at <b><%= des.profile.educations.last.school %></b>
+					</p>
+				</div>
+				<!-- Skills -->
+				<div class="col-md-4">
+					<p>
+						<span class="glyphicon glyphicon-wrench"></span>
+						<% des.profile.skills.each do |s| %>
+							{ <%= s.name %> }
+						<% end %>
+					</p>
+				</div>
+			</div>
+			<hr>
+			<% end %>
+		<% end %>
+		<!-- paginate nav bar-->
+		<div class="paginate_nav">
+			<%= will_paginate @designers %>
+		</div>	
+	</div>
+</div>

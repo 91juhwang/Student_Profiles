@@ -2,16 +2,20 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-
   devise_for :students, controllers: {
-    sessions: 'students/sessions'
+    sessions: 'students/sessions',
+    registrations: 'registrations'
   }
   resources :profiles do
     resources :skills
-    resources :educations
     resources :experiences
+    resources :educations
   end
   
+  resources :jobs
+
+  get "/developers" => "developers#index"
+  get "/designers" => "designers#index"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

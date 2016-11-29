@@ -1,0 +1,34 @@
+<h3>Add Experiences: </h3>
+<%= form_for([@profile, @profile.experiences.build]) do |f| %>
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title %> 
+	</p>
+	<p>
+		<%= f.label :company %>
+		<%= f.text_field :company %> 
+	</p>
+	<p>
+		<%= f.label :description %>
+		<%= f.text_area :description%> 
+	</p>
+	<p>
+		<%= f.label :start %>
+		<%= f.date_select :start, 
+			:order => [:day, :month, :year], 
+			:prompt => {day: 'Choose day', month: 'Choose month', year: 'Choose year'},
+			:start_year => 2000,
+			:end_year => Date.today().year %> 
+	</p>
+	<p>
+		<%= f.label :end %>
+		<%= f.date_select :end, 
+			:order => [:day, :month, :year], 
+			:prompt => {day: 'Choose day', month: 'Choose month', year: 'Choose year'},
+			:start_year => 2000,
+			:end_year => Date.today().year %> 
+	</p>
+	<%= f.hidden_field :profile_id, :value => @profile.id %>
+	<p><%= f.submit %></p>
+<% end %>
+

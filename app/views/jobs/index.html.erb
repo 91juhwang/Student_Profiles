@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-1">
+			<% @jobs.each do |job| %>
+				<h2><%= link_to job.title, job %></h2>
+				<p><%= job.company %></p><hr>
+			<% end %>
+		</div>
+
+		<div class="col-md-3">
+			<h3><%= link_to "Post a Job", new_job_path %></h3>
+		</div>
+	</div>
+</div>

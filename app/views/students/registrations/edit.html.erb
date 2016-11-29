@@ -13,6 +13,16 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :student_type %> <br />
+    <%= f.select :student_type, [@student_type, "COMPANY"] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :job_type %> <br />
+    <%= f.select :job_type, [@job_type, "Designer"] %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>

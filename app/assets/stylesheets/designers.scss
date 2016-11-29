@@ -1,0 +1,41 @@
+// Place all the styles related to the designers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.desPageHeader {
+	width: 100%;
+	padding: 10% 0;
+	background: url(des.jpg) center center;
+	background-size: cover;
+
+	h1 {
+		font-weight: 300;
+		color: #fff;
+	}
+}
+
+
+.desList {
+	margin: 10% auto;
+
+	.desAvatar {
+		img {
+			border-radius: 50%;
+			margin-bottom: 20px;
+		}
+	}
+
+	h2 {
+		font-weight: 300;
+		margin-top: 0;
+		a {
+			color: #111;
+		}
+	}
+
+	.location { 
+		font-weight: 100;
+		color: #888;
+	}
+}

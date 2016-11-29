@@ -1,12 +1,13 @@
+<h3>My Skills:</h3>
 <ul>
 	<!-- !element.id.nil? is same as element.id != nil -->
 	<% @profile.skills.select{|element| !element.id.nil? }.each do |s| %>
-		<li>
-			<%= s.name %> 
+		<li><%= s.name %>
 			<%= link_to "X", [s.profile, s],
 				method: :delete,
 				data: { confirm: "Are you sure?" } %>
 		</li>
 	<% end %>
 </ul>
+<hr>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012190346) do
+ActiveRecord::Schema.define(version: 20161121002928) do
 
   create_table "educations", force: :cascade do |t|
     t.string   "school"
@@ -34,14 +34,27 @@ ActiveRecord::Schema.define(version: 20161012190346) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "company"
+    t.string   "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.string   "status"
     t.string   "location"
     t.string   "course"
     t.integer  "student_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -73,6 +86,8 @@ ActiveRecord::Schema.define(version: 20161012190346) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "student_type"
+    t.string   "job_type"
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true

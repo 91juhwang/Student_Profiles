@@ -1,2 +1,72 @@
-<h1>Hello World</h1>
+<div class="homeHeader">
+	<div class="container">
+		<div class="col-md-4 col-md-offset-8">
+			<h1>Our Community,</h1>
+			<h1>Your Future.</h1>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="forFixedBar">
+	<div class="devSection col-md-4">
+		<h2>Find your next:</h2>
+	</div>
+	<div class="devSection col-md-4 col-sm-6">
+		<h2>
+			<%= link_to "Developers", developers_path %>
+		</h2>
+	</div>
+	<div class="designSection col-md-4 col-sm-6">
+		<h2>
+			<%= link_to "Designers", designers_path %>
+		</h2>
+	</div>
+</div>
+
+
+
+<div class="whySection">
+	<div class="container">
+		<h1>Why NYCDA?</h1>
+		<div class="col-md-4">
+				<h3>Quality Assurance</h3>
+				<h4>We only graduate high quality developers and designers who are ready to commit and contribute to the industry.</h4>
+		</div>
+		<div class="col-md-4">
+				<h3>Community First</h3>
+				<h4>We handpick leading developers and designers in the tech industry to help instruct and mentor our students.</h4>
+		</div>
+		<div class="col-md-4">
+				<h3>Real Diversity</h3>
+				<h4>Our students come from all backgrounds of life, bringing experiences and skills that translate to successful workmanship.</h4><br>
+		</div>
+		<a href="https://nycda.com/" target="_blank" class="btn btn-default btn-lg">Learn More</a>
+	</div>
+</div>
+
+
+
+<div class="companySignUp">
+	<div class="container">
+		<div class="col-md-5 col-md-offset-1">
+			<h1>Create a profile</h1>
+			<h4>Don't be a stranger, sign up today and join our network. Get access to our jobs channel and more.</h4>
+			<%= link_to "SIGN UP", new_student_registration_path, :class => "btn btn-default btn-lg" %>	
+		</div>
+		<div class="col-md-5">
+			<h1>Browse graduates</h1>
+			<h4>Or just look through our extensive list of potential candidates and what they are currently working on.</h4>
+			<%= link_to "BROWSE", profiles_path, :class => "btn btn-default btn-lg" %>
+		</div>
+	</div>	
+</div>
+
+
+
+
+
+
+
 
