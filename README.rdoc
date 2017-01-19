@@ -12,15 +12,15 @@ This app is created to help students to easily create their online portfolio to 
 
 Run the following command to install the gems:
 
-```
+`
 bundle install
-```
+`
 
 Run migrations for database and tables:
 
-```
+``
 rails db:migrate
-```
+``
 
 Then start the server:
 
