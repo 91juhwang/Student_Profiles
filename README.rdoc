@@ -5,7 +5,7 @@ This app is created to help students to easily create their online portfolio to 
 ## Requirements
 
   - `Ruby 2.3.0`
-  - `Rails 4.0.1 < `
+  - `Rails 4.0.1 `<``
   - `SQLite`
 
 ## Usage & Installation
